@@ -54,8 +54,7 @@ class MaxPriorityQueue:
             raise IndexError(f"Index out of bounds")
         
         self.max_heap_increase_key(x,float('inf'))
-        self._max_heapify(x)
-        self.length -= 1
+        self.max_heap_extract_max()
 
 class MinPriorityQueue:
     
