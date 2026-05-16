@@ -72,3 +72,27 @@ def quick_sort_hoare_tre_optimized(arr,p,r):
         else:
             quick_sort_hoare_tre_optimized(arr,q+1,r)
             r = q
+
+
+def quick_sort_dnf(arr,p,r):
+    if p >= r:
+        return
+    lt = p
+    i = p
+    gt = r
+    pivot = arr[p]
+    while True:
+        if(i > gt):
+            break
+        if(arr[i] > pivot):
+            arr[i],arr[gt] = arr[gt],arr[i]
+            gt -= 1
+        elif(arr[i] < pivot):
+            arr[lt],arr[i] = arr[i], arr[lt]
+            lt += 1
+            i += 1
+        else:
+            i += 1
+    quick_sort_dnf(arr,p,lt-1)
+    quick_sort_dnf(arr,gt+1,r)
+
